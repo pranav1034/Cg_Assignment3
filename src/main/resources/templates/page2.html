@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Page 2</title></head>
+<body>
+
+<p>First Name: <span th:text="${user.firstName}"/></p>
+<p>Last Name:  <span th:text="${user.lastName}"/></p>
+
+<form th:action="@{/page2}" th:object="${user}" method="post">
+    <!-- carry firstName + lastName forward -->
+    <input type="hidden" th:field="*{firstName}"/>
+    <input type="hidden" th:field="*{lastName}"/>
+
+    <label>Email: <input th:field="*{email}" /></label><br/>
+    <label>Phone: <input th:field="*{phone}" /></label><br/>
+    <button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>

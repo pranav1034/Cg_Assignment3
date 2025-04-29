@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Page 3</title></head>
+<body>
+
+<p>First Name: <span th:text="${user.firstName}"/></p>
+<p>Last Name:  <span th:text="${user.lastName}"/></p>
+<p>Email: <span th:text="${user.email}"/></p>
+<p>Phone: <span th:text="${user.phone}"/></p>
+
+
+<form th:action="@{/page3}" th:object="${user}" method="post">
+    <!-- carry all previous fields -->
+    <input type="hidden" th:field="*{firstName}"/>
+    <input type="hidden" th:field="*{lastName}"/>
+    <input type="hidden" th:field="*{email}"/>
+    <input type="hidden" th:field="*{phone}"/>
+
+    <label>City:    <input th:field="*{city}"    /></label><br/>
+    <label>Country: <input th:field="*{country}" /></label><br/>
+    <button type="submit">Submit</button>
+</form>
+
+
+
+</body>
+</html>
